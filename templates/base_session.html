@@ -18,10 +18,14 @@
   <nav class="navbar navbar-inverse">           <!-- Menu de la app -->
     <div class="container-fluid">
       <nav class="navbar-header">
-        <a class="navbar-brand" href="/">FarmApp </a>
+        <a class="navbar-brand" href="#">FarmApp </a>
       </nav>
+      <ul class="nav navbar-nav">
+        <li><a href="/ultimas_ventas">Ultimas Ventas</a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
+      <li class="active"><a href=""> {% block usuario %} {% endblock %}</a></li>
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
     </ul>
     </div>
 
