@@ -32,9 +32,8 @@ def login():
 @app.route("/ultimas_ventas", methods=['GET','POST'])     # pagina de ultimas_ventas en caso de sesion iniciada sino redirecciono a indexx 
 def ultimas_ventas():
 	if 'usuario' in session:
-		user = session['usuario']
-		edad = 17
-		return render_template("ultimas_ventas.html", usuario = user , edad = edad)
+		user = session['usuario']		
+		return render_template("ultimas_ventas.html", usuario = user )
 	else:
 		return redirect (url_for("index"))
 
