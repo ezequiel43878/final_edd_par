@@ -2,17 +2,16 @@
 {% block usuario %} {{ usuario }} {% endblock %}
 
 {% block contenido %}
-<h2><strong> Ultimas 5 Ventas Realizadas: </strong></h2>
+<h2><strong> Los {{cantidad}} clientes con mayores gastos: </strong></h2>
     <br>
 
 	<table class="table table-bordered table-striped">		
  				<tr>
- 					{% for campos in cabezera %}
- 					<td><strong> {{campos}}</strong></td>
- 					{% endfor %}
+ 					<th>Cliente</th>
+ 					<th>Gasto Total ($)</th>
  				</tr>
 
-			{% for fila in ultimos_registros %}
+			{% for fila in lista %}
 					<tr>
 						{% for columna in fila %}
 							<td>{{columna}} </td>

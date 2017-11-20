@@ -1,0 +1,12 @@
+{% if not session.usuario %}
+    {% extends 'base.html' %}
+{% else %}
+    {% extends 'base_session.html' %}
+    {% block usuario %} {{ usuario }} {% endblock %}
+{% endif %}
+
+
+{% block contenido %}
+<h1>Error en el servidor.</h1>
+
+{% endblock %}

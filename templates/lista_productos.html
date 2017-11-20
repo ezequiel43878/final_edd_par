@@ -1,0 +1,31 @@
+{% extends 'base_session.html' %}
+{% block usuario %} {{ usuario }} {% endblock %}
+
+{% block contenido %}
+<h2><strong> Eliga un Producto: </strong></h2>
+    <br>
+
+	<table class="table table-bordered table-striped">		
+ 				
+			<form action="/lista_de_producto" method="post" name="formRegistro">
+				<tr><th>{{nombre_campo}}</th>
+					<th></th>
+				</tr>
+					
+				{% for columna in lista_de_producto %}
+					<tr><label><td>{{columna}}</td>
+						<td>
+							<input type="radio" name="producto" value="{{columna}}">
+						</td>
+					</tr>
+				{% endfor %}
+				 <tr><td align="center" colspan="2">
+				 	<button type="submit" class="btn btn-success">Enviar</button>
+				 </tr>  
+			</form>	
+				
+	</table>
+<br><br>
+
+
+{% endblock %}

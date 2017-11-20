@@ -2,7 +2,7 @@
 {% block usuario %} {{ usuario }} {% endblock %}
 
 {% block contenido %}
-<h2><strong> Ultimas 5 Ventas Realizadas: </strong></h2>
+<h2><strong> Clientes que compraron: {{producto}} </strong></h2>
     <br>
 
 	<table class="table table-bordered table-striped">		
@@ -12,7 +12,7 @@
  					{% endfor %}
  				</tr>
 
-			{% for fila in ultimos_registros %}
+			{% for fila in lista %}
 					<tr>
 						{% for columna in fila %}
 							<td>{{columna}} </td>
