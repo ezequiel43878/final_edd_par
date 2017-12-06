@@ -1,8 +1,9 @@
 import csv
-from flask import Flask, render_template, flash, session, redirect, url_for, request
+from flask import Flask, render_template, flash, session, redirect, url_for, request,make_response
 from flask_bootstrap import Bootstrap
 from forms import LoginForm, NombreCliente, NombreProducto, Cantidad_clientes , Cantidad_productos, Registrar
 from lectura_bd import lectura_de_bd
+from datetime import datetime , date, time, timedelta
 import codecs
 
 #BASE DE DATOS:
@@ -329,6 +330,32 @@ def registrar():
 
 		return render_template("registrar.html",formulario = formulario)
 
+@app.route("/descargar_csv", methods=['GET','POST'])
+def descargar_consulta():
+	if 'usuario' in session:
+		usuario = session['usuario']
+		
+
+
+	return render_template("index")	
+
+@app.route('/csv', methods= ['POST','GET'])  
+def download_csv():
+    titulo = request.form['producto']
+    csv = request.form['lista']
+    lista_resultado = []
+
+    ahora = datetime.now()
+    print (csv)
+    print (titulo)
+    response = make_response(csv)
+    cd = 'attachment; filename=resultados_{}{}{}_{}{}{}.csv'.format(ahora.year,ahora.month,ahora.day,ahora.hour,ahora.minute,ahora.second)
+    response.headers['Content-Disposition'] = cd 
+    response.mimetype='text/csv'
+
+    return response
+
+#resultados_YYYYMMDD_HHmmSS.csv    / yyyymmdd  <---- fecha     hhmm <--- hora 
 
 if __name__ == ("__main__"):
 	app.run(debug=True)

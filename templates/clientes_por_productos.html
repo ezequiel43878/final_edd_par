@@ -3,19 +3,26 @@
 
 {% block contenido %}
 <h2><strong> Clientes que compraron: {{producto}} </strong></h2>
-    <br>
-
+    
 	<table class="table table-bordered table-striped">		
- 				<tr>
- 					{% for campos in cabezera %}
- 					<td><strong> {{campos}}</strong></td>
- 					{% endfor %}
- 				</tr>
-
-			{% for fila in lista %}
-					<tr>
+		<br>
+			<form method="POST" action="/csv" name="formRegistro">
+				<input id="id" type="hidden" name="lista" value="{{lista}}" />
+				<input id="id" type="hidden" name="producto" value="Clientes que compraron: {{producto}}" />
+				   <button type="submit" class="btn btn-success">CSV</button>
+				</div>
+			</form>
+	    <br>
+	 	<br>
+	 				<tr>
+	 					{% for campos in cabezera %}
+	 					<td><strong> {{campos}}</strong></td>
+	 					{% endfor %}
+	 				</tr>
+						{% for fila in lista %}
+							<tr>
 						{% for columna in fila %}
-							<td>{{columna}} </td>
+							<td> {{columna}} </td>
 						{% endfor %}  
 					</tr>
 			{% endfor %}		
