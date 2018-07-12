@@ -1,16 +1,20 @@
 {% extends 'base_session.html' %}
 {% block usuario %} {{ usuario }} {% endblock %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block contenido %}
 <h2><strong> Ultimas 5 Ventas Realizadas: </strong></h2>
     <br>
 
 	<table class="table table-bordered table-striped">		
+		
+ 			{% for fila in cabezera %}	
  				<tr>
- 					{% for campos in cabezera %}
+ 					{% for campos in fila %}
  					<td><strong> {{campos}}</strong></td>
  					{% endfor %}
  				</tr>
+ 			{% endfor %}	
 
 			{% for fila in ultimos_registros %}
 					<tr>
@@ -18,9 +22,11 @@
 							<td>{{columna}} </td>
 						{% endfor %}  
 					</tr>
-			{% endfor %}		
+			{% endfor %}	
+			
 	</table>
 <br><br>
+
 
 
 {% endblock %}

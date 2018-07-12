@@ -3,18 +3,26 @@
 
 {% block contenido %}
 <h2><strong> Los {{cantidad}} productos mas vendidos: </strong></h2>
-    <br>
 
 	<table class="table table-bordered table-striped">		
- 				<tr>
+		<br>
+			<form method="POST" action="/csv" name="formRegistro">
+				<input id="id" type="hidden" name="lista" value="{{lista}}" />
+				<input id="id" type="hidden" name="producto" value="Los {{cantidad}} productos mas vendidos:" />
+				   <button type="submit" class="btn btn-success">CSV</button>
+				</div>
+			</form>
+	    <br>
+	    <br>
+ 				<tr >
  					<th>Producto</th>
- 					<th>Cantidad</th>
+ 					<th align="center">Cantidad Vendida</th>
  				</tr>
 
 			{% for fila in lista %}
 					<tr>
 						{% for columna in fila %}
-							<td>{{columna}} </td>
+							<td >{{columna}} </td>
 						{% endfor %}  
 					</tr>
 			{% endfor %}		

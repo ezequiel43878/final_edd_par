@@ -14,17 +14,20 @@
 			</form>
 	    <br>
 	 	<br>
-	 				<tr>
-	 					{% for campos in cabezera %}
-	 					<td><strong> {{campos}}</strong></td>
-	 					{% endfor %}
-	 				</tr>
-						{% for fila in lista %}
-							<tr>
-						{% for columna in fila %}
-							<td> {{columna}} </td>
-						{% endfor %}  
-					</tr>
+	 		{% for fila in cabezera %}	
+ 				<tr>
+ 					{% for campos in fila %}
+ 					<td><strong> {{campos}}</strong></td>
+ 					{% endfor %}
+ 				</tr>
+ 			{% endfor %}
+		
+			{% for fila in lista %}
+				<tr>
+					{% for columna in fila %}
+					<td> {{columna}} </td>
+					{% endfor %}  
+				</tr>
 			{% endfor %}		
 	</table>
 <br><br>

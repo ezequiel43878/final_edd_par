@@ -3,15 +3,24 @@
 
 {% block contenido %}
 <h2><strong> Compras realizadas por {{cliente}}: </strong></h2>
-    <br>
 
 	<table class="table table-bordered table-striped">		
+		<br>
+			<form method="POST" action="/csv" name="formRegistro">
+				<input id="id" type="hidden" name="lista" value="{{lista}}" />
+				<input id="id" type="hidden" name="producto" value="Compras realizadas por: {{cliente}}" />
+				   <button type="submit" class="btn btn-success">CSV</button>
+				</div>
+			</form>
+	    <br>
+	    <br>
+ 			{% for fila in cabezera %}	
  				<tr>
- 					{% for campos in cabezera %}
+ 					{% for campos in fila %}
  					<td><strong> {{campos}}</strong></td>
  					{% endfor %}
  				</tr>
-
+ 			{% endfor %}	
 			{% for fila in lista %}
 					<tr>
 						{% for columna in fila %}

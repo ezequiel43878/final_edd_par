@@ -1,8 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import Form
-from wtforms import StringField, PasswordField, SubmitField, RadioField, IntegerField
+from wtforms import StringField, PasswordField, SubmitField, RadioField, IntegerField, SelectField
 from wtforms.validators import Required , InputRequired, Length
-
 
 class LoginForm(FlaskForm):
 	usuario = StringField('Usuario:', validators=[Required()])
@@ -29,4 +28,10 @@ class Registrar(FlaskForm):
 	usuario = StringField('Ingrese nombre de usuario:',validators=[Required()])
 	password = PasswordField('Ingrese una Contraseña:',validators=[Required()])
 	reingresar_password = PasswordField('Repita la Contraseña:',validators=[Required()])
+	enviar = SubmitField('Enviar')
+
+class AgregarVenta(FlaskForm):
+	cliente = SelectField('Cliente:', choices=[])
+	producto = SelectField('Producto:',choices=[])
+	cantidad = IntegerField('Cantidad',validators=[Required()])
 	enviar = SubmitField('Enviar')

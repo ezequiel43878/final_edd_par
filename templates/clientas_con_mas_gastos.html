@@ -3,9 +3,17 @@
 
 {% block contenido %}
 <h2><strong> Los {{cantidad}} clientes con mayores gastos: </strong></h2>
-    <br>
 
-	<table class="table table-bordered table-striped">		
+	<table class="table table-bordered table-striped">	
+			<br>
+				<form method="POST" action="/csv" name="formRegistro">
+					<input id="id" type="hidden" name="lista" value="{{lista}}" />
+					<input id="id" type="hidden" name="producto" value="Los {{cantidad}} clientes con mayores gastos:" />
+					   <button type="submit" class="btn btn-success">CSV</button>
+					</div>
+				</form>
+		    <br>	
+		    <br>
  				<tr>
  					<th>Cliente</th>
  					<th>Gasto Total ($)</th>
